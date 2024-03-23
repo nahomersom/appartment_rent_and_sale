@@ -1,3 +1,4 @@
+import 'package:appartment_rent_and_sale/Business%20Logic/Bloc/authentication/authentication_bloc.dart';
 import 'package:appartment_rent_and_sale/Data/Data%20Providers/light_theme.dart';
 import 'package:appartment_rent_and_sale/Presentation/Routes/route_config.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -35,7 +36,11 @@ class ALaCare extends StatelessWidget with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [],
+      providers: [
+        BlocProvider<AuthenticationCubit>(
+          create: (context) => AuthenticationCubit(storageService: null),
+        ),
+      ],
       child: MaterialApp.router(
         title: 'A La Care',
         theme: lightTheme,
